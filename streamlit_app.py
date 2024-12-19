@@ -78,12 +78,10 @@ def generate_results(purposes: list) -> list:
                 ["Teaching Excellence (Makino Awards)"]
     """
     matches = []
-    st.write(f"{len(purposes)}")
-    st.write(f"{purposes}{purposes[0]}")
+
     # All grants in first purpose added
     if type(grants[purposes[0]]) != str:
         matches = grants[purposes[0]]
-        st.write(f"{matches}")
     else:
         matches = [grants[purposes[0]]]
     
@@ -93,7 +91,7 @@ def generate_results(purposes: list) -> list:
             matches = [grant for grant in grants[purposes[i]] if grant in matches]
         
     st.write(f"{matches}")
-    return [matches]
+    return matches
 
 
 
