@@ -28,15 +28,15 @@ purposes = []
 if association == "Faculty":
     
     # Purposes (keys), Grants that cover them (values)
-    grants = {"Classroom Supplies": "Uni High Faculty Classroom Needs & Projects Request",
+    grants = {"Classroom Supplies": ["Uni High Faculty Classroom Needs & Projects Request"],
               "Special Opportunity (Non-Uni)": ["Ang Current Use Fund (Professional Development Funding)", "Uni Endowment Fund (Professional Development Funding)"],
-              "Conference": "Ang Current Use Fund (Professional Development Funding)",
+              "Conference": ["Ang Current Use Fund (Professional Development Funding)"],
               "Research/Publication": ["Frankel Fund For Learning Innovation", "Innovations in Learning (Professional Development Funding)", "Teaching Excellence (Makino Awards)"],
               "Activity": ["Innovations in Learning (Professional Development Funding)", "Teaching Excellence (Makino Awards)"],
               "Project Supplies": ["Innovations in Learning (Professional Development Funding)", "Uni Endowment Fund (Professional Development Funding)", "Teaching Excellence (Makino Awards)"],
               "Startup (New program)": ["Uni Endowment Fund (Professional Development Funding)", "Teaching Excellence (Makino Awards)"],
-              "Professional Membership": "Uni Endowment Fund (Professional Development Funding)",
-              "Travel/Housing/Food": "Teaching Excellence (Makino Awards)"}
+              "Professional Membership": ["Uni Endowment Fund (Professional Development Funding)"],
+              "Travel/Housing/Food": ["Teaching Excellence (Makino Awards)"]}
     
     purposes = st.pills("Select all purposes for grant", grants.keys(), selection_mode = "multi")
 
@@ -45,7 +45,7 @@ if association == "Faculty":
 if association == "Student":  
 
     # Purposes (keys), Grants that cover them (values)
-    grants = {"Conference": "Barbara Lazarus Memorial Fund",
+    grants = {"Conference": ["Barbara Lazarus Memorial Fund"],
               "Research": ["Barbara Lazarus Memorial Fund", "Frankel Fund For Learning Innovation"],
               "Activity": ["Barbara Lazarus Memorial Fund", "Makino Awards"],
               "Travel/Housing/Food": ["Barbara Lazarus Memorial Fund", "Boren Scholarship", "Makino Awards"],
@@ -89,7 +89,8 @@ def generate_results(purposes: list) -> list:
     # If more than one purpose is selected, matches is redefined as the grant(s) that cover all purposes
     if len(purposes) > 1:
         for i in range(1, len(purposes)):
-            st.write(f"{grants[purposes[i]]}")
+            if type(grants[purposes[i]]) == str:
+                grants[purposes[i]]
             matches = [grant for grant in grants[purposes[i]] if grant in matches]
         
     return matches
