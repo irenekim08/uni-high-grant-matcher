@@ -5,7 +5,7 @@ import streamlit as st
 # Introduction
 st.title("Uni High Grant Matcher")
 st.write(
-    "In need of funding but don't know what grant to apply for? Use the Uni High Grant Matcher to find your best fit!"
+    "In need of funding but don't know what grant to apply for?\nUse the Uni High Grant Matcher to find your best fit!"
 )
 
 # Association (selectbox)
