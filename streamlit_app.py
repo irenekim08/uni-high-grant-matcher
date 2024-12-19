@@ -5,4 +5,5 @@ st.write(
     "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
 )
 
-$ pip install -r requirements.txt
+pip install -r requirements.txt
+streamlit run streamlit_app.py
