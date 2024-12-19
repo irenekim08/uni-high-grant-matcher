@@ -87,7 +87,8 @@ def generate_results(purposes: list) -> list:
     while len(purposes) > 0:
         matches = [grant for grant in grants[purposes[0]] if grant in matches]
         del purposes[0]
-
+        
+    st.write(f"{matches}")
     if type(matches) != str:
         return matches
     # Prevents error of slicing string in link_button step
