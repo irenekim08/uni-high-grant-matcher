@@ -109,7 +109,7 @@ grant_links = {"Barbara Lazarus Memorial Fund": "https://www.uni.illinois.edu/si
                 "Teaching Excellence (Makino Awards)": "https://www.uni.illinois.edu/sites/default/files/2022-11/Makino_Award_Teaching_Excellence.doc"}
 
 # Default of no purposes chosen shows all grants
-if purposes == []:
+if association != None and purposes == []:
     st.write(f"Check out:")
     
     for grant in grants:
