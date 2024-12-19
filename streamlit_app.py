@@ -89,6 +89,7 @@ def generate_results(purposes: list) -> list:
     # If more than one purpose is selected, matches is redefined as the grant(s) that cover all purposes
     if len(purposes) > 1:
         for i in range(1, len(purposes)):
+            st.write(f"{grant for grant in grants[purposes[i]]}")
             matches = [grant for grant in grants[purposes[i]] if grant in matches]
         
     return matches
