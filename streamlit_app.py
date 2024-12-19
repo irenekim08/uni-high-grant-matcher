@@ -41,6 +41,15 @@ if association == "Faculty":
     
     purposes = st.pills("Select all purposes for grant", grants.keys(), selection_mode = "multi")
 
+    # All grants (keys), links to the application(values)
+    grant_links = {"Frankel Fund For Learning Innovation": "https://www.uni.illinois.edu/sites/default/files/2023-04/Frankel_Fund_for_Learning_Innovation_Application_Revised_4-4-23.docx",
+                   "Uni High Faculty Classroom Needs & Projects Request": "https://surveys.illinois.edu/sec/1092747534?referrer=",
+                   "Ang Current Use Fund (Professional Development Funding)": "https://forms.illinois.edu/sec/4072389?referrer=https://shibboleth.illinois.edu/",
+                   "Innovations in Learning (Professional Development Funding)": "https://forms.illinois.edu/sec/4072389?referrer=https://shibboleth.illinois.edu/",
+                   "Uni Endowment Fund (Professional Development Funding)": "https://forms.illinois.edu/sec/4072389",
+                   "Teaching Excellence (Makino Awards)": "https://www.uni.illinois.edu/sites/default/files/2022-11/Makino_Award_Teaching_Excellence.doc"}
+                   
+
                                                         
 # Uses available for student (pill-buttons) 
 if association == "Student":  
@@ -59,6 +68,15 @@ if association == "Student":
     
     purposes = st.pills("Select all purposes for grant", grants.keys(), selection_mode = "multi") 
 
+    # All grants (keys), links to the application(values)
+    grant_links = {"Barbara Lazarus Memorial Fund": "https://www.uni.illinois.edu/sites/default/files/2024-09/Barbara%20Lazarus%20Memorial%20Fund.pdf",
+                   "Boren Scholarship": "https://www.uni.illinois.edu/sites/default/files/2022-11/Boren_Scholarship.docx",
+                   "Eastern Illini Electric Cooperative": "https://eiec.org/youth-washington-program",
+                   "Makino Awards": "https://www.uni.illinois.edu/sites/default/files/2022-11/MAKINO%20AWARD_Enhancing%20Student%20Life.doc",
+                   "The Illinois Odd Fellow-Rebekah Scholarship Program": "https://ioof-il.org/programs/scholarship-program.html",
+                   "Frankel Fund For Learning Innovation": "https://www.uni.illinois.edu/sites/default/files/2023-04/Frankel_Fund_for_Learning_Innovation_Application_Revised_4-4-23.docx",
+                   "McNevin Scholarship": "https://www.uni.illinois.edu/sites/default/files/2024-08/McNevin_Scholarship_Description_and_application_2024.pdf",
+                   "Martin Luther King Scholarship": "https://www.collegesuccessfoundation.org/scholarship/martin-luther-king-jr-scholarship/#about"}
 
 
 
@@ -93,26 +111,12 @@ def generate_results(purposes: list) -> list:
 
 
 
-# All grants (keys), links to the application(values)
-grant_links = {"Barbara Lazarus Memorial Fund": "https://www.uni.illinois.edu/sites/default/files/2024-09/Barbara%20Lazarus%20Memorial%20Fund.pdf",
-                "Boren Scholarship": "https://www.uni.illinois.edu/sites/default/files/2022-11/Boren_Scholarship.docx",
-                "Eastern Illini Electric Cooperative": "https://eiec.org/youth-washington-program",
-                "Makino Awards": "https://www.uni.illinois.edu/sites/default/files/2022-11/MAKINO%20AWARD_Enhancing%20Student%20Life.doc",
-                "The Illinois Odd Fellow-Rebekah Scholarship Program": "https://ioof-il.org/programs/scholarship-program.html",
-                "Frankel Fund For Learning Innovation": "https://www.uni.illinois.edu/sites/default/files/2023-04/Frankel_Fund_for_Learning_Innovation_Application_Revised_4-4-23.docx",
-                "McNevin Scholarship": "https://www.uni.illinois.edu/sites/default/files/2024-08/McNevin_Scholarship_Description_and_application_2024.pdf",
-                "Martin Luther King Scholarship": "https://www.collegesuccessfoundation.org/scholarship/martin-luther-king-jr-scholarship/#about",
-                "Uni High Faculty Classroom Needs & Projects Request": "https://surveys.illinois.edu/sec/1092747534?referrer=",
-                "Ang Current Use Fund (Professional Development Funding)": "https://forms.illinois.edu/sec/4072389?referrer=https://shibboleth.illinois.edu/",
-                "Innovations in Learning (Professional Development Funding)": "https://forms.illinois.edu/sec/4072389?referrer=https://shibboleth.illinois.edu/",
-                "Uni Endowment Fund (Professional Development Funding)": "https://forms.illinois.edu/sec/4072389",
-                "Teaching Excellence (Makino Awards)": "https://www.uni.illinois.edu/sites/default/files/2022-11/Makino_Award_Teaching_Excellence.doc"}
 
 # Default of no purposes chosen shows all grants
 if association != None and purposes == []:
     st.write(f"Check out:")
     
-    for grant in grants:
+    for grant in grant_links.keys():
         st.link_button(f"Apply for {grant}", grant_links[grant])
     
 # Run generate_results only when purpose(s) selected
