@@ -108,7 +108,13 @@ grant_links = {"Barbara Lazarus Memorial Fund": "https://www.uni.illinois.edu/si
                 "Uni Endowment Fund (Professional Development Funding)": "https://forms.illinois.edu/sec/4072389",
                 "Teaching Excellence (Makino Awards)": "https://www.uni.illinois.edu/sites/default/files/2022-11/Makino_Award_Teaching_Excellence.doc"}
 
-
+# Default of no purposes chosen shows all grants
+if purposes == []:
+    st.write(f"Check out:")
+    
+    for grant in grants:
+        st.link_button(f"Apply for {grant}", grant_links[grant])
+    
 # Run generate_results only when purpose(s) selected
 if purposes != []:
     st.write(f"Check out:")
