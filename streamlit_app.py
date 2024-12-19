@@ -37,8 +37,7 @@ if association == "Faculty":
               "Startup (New program)": ["Uni Endowment Fund (Professional Development Funding)", "Teaching Excellence (Makino Awards)"],
               "Professional Membership": "Uni Endowment Fund (Professional Development Funding)",
               "Travel/Housing/Food": "Teaching Excellence (Makino Awards)"}
-    purposes = [grants.keys()]
-    purposes = st.pills("Select all purposes for grant", grants.keys(), selection_mode = "multi")
+    purposes = st.pills("Select all purposes for grant", grants.keys(), selection_mode = "multi", default = [grants.keys()])
 
                                                         
 # Uses available for student (pill-buttons) 
@@ -54,8 +53,7 @@ if association == "Student":
               "Study Abroad": ["Boren Scholarship", "McNevin Scholarship"],
               "AP/ACT Prep": ["Boren Scholarship", "McNevin Scholarship"],
               "Camps (academic, arts, athletics)": ["Boren Scholarship", "McNevin Scholarship"]}
-    purposes = [grants.keys()]
-    purposes = st.pills("Select all purposes for grant", grants.keys(), selection_mode = "multi")  
+    purposes = st.pills("Select all purposes for grant", grants.keys(), selection_mode = "multi", default = [grants.keys()]) 
 
 
 
