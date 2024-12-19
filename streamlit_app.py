@@ -78,6 +78,7 @@ def generate_results(purposes: list) -> list:
                 ["Teaching Excellence (Makino Awards)"]
     """
     matches = []
+    st.write(f"{len(purposes)}")
     st.write(f"{purposes}{purposes[0]}")
     # All grants in first purpose added
     if type(grants[purposes[0]]) != str:
