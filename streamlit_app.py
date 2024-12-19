@@ -48,9 +48,10 @@ if association == "Faculty":
                    "Innovations in Learning (Professional Development Funding)": "https://forms.illinois.edu/sec/4072389?referrer=https://shibboleth.illinois.edu/",
                    "Uni Endowment Fund (Professional Development Funding)": "https://forms.illinois.edu/sec/4072389",
                    "Teaching Excellence (Makino Awards)": "https://www.uni.illinois.edu/sites/default/files/2022-11/Makino_Award_Teaching_Excellence.doc"}
-                   
 
-                                                        
+    url = "https://www.uni.illinois.edu/resources/faculty-resources/faculty-staff-funding-requests"
+                   
+                               
 # Uses available for student (pill-buttons) 
 if association == "Student":  
 
@@ -77,6 +78,8 @@ if association == "Student":
                    "Frankel Fund For Learning Innovation": "https://www.uni.illinois.edu/sites/default/files/2023-04/Frankel_Fund_for_Learning_Innovation_Application_Revised_4-4-23.docx",
                    "McNevin Scholarship": "https://www.uni.illinois.edu/sites/default/files/2024-08/McNevin_Scholarship_Description_and_application_2024.pdf",
                    "Martin Luther King Scholarship": "https://www.collegesuccessfoundation.org/scholarship/martin-luther-king-jr-scholarship/#about"}
+
+    url = "https://www.uni.illinois.edu/resources/school-grants-students"
 
 
 
@@ -120,6 +123,9 @@ if association != None and purposes == []:
     for grant in grant_links.keys():
         st.link_button(f"Apply for {grant}", grant_links[grant])
     
+    st.write("For more information on grants and funds at Uni, visit the [Uni High website](%s)" % url)
+
+
 # Run generate_results only when purpose(s) selected
 if purposes != []:
     st.write(f"Check out:")
@@ -127,7 +133,4 @@ if purposes != []:
     for grant in generate_results(purposes):
         st.link_button(f"Apply for {grant}", grant_links[grant])
 
-    st.write("For more information on grants and funds at Uni, visit the Uni High website.")
-    url = "https://www.streamlit.io"
-    st.write("check out this [link](%s)" % url)
-    st.markdown("check out this [link](%s)" % url)
+    st.write("For more information on grants and funds at Uni, visit the [Uni High website](%s)" % url)
