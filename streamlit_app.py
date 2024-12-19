@@ -3,7 +3,7 @@ import streamlit as st
 # Code and comments arranged in order of appearance on app/being defined
 
 # Introduction
-st.title("Uni Grant Matcher")
+st.title("Uni High Grant Matcher")
 st.write(
     "In need of funding but don't know what grant to apply for? Use the Uni Grant Matcher to find your best fit!"
 )
@@ -21,7 +21,7 @@ st.write("Displaying grant uses for:", association)
 
 
 # Empty to 1. be defined based on selected association's offered purposes and 2. make sure generate_results only runs when pill(s) selected
-purposes = [grants.keys()]
+purposes = []
 
 
 # Uses available for faculty (pill-buttons)
@@ -37,7 +37,7 @@ if association == "Faculty":
               "Startup (New program)": ["Uni Endowment Fund (Professional Development Funding)", "Teaching Excellence (Makino Awards)"],
               "Professional Membership": "Uni Endowment Fund (Professional Development Funding)",
               "Travel/Housing/Food": "Teaching Excellence (Makino Awards)"}
-
+    purposes = [grants.keys()]
     purposes = st.pills("Select all purposes for grant", grants.keys(), selection_mode = "multi")
 
                                                         
@@ -54,7 +54,7 @@ if association == "Student":
               "Study Abroad": ["Boren Scholarship", "McNevin Scholarship"],
               "AP/ACT Prep": ["Boren Scholarship", "McNevin Scholarship"],
               "Camps (academic, arts, athletics)": ["Boren Scholarship", "McNevin Scholarship"]}
-
+    purposes = [grants.keys()]
     purposes = st.pills("Select all purposes for grant", grants.keys(), selection_mode = "multi")  
 
 
