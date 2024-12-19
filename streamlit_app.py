@@ -80,7 +80,7 @@ def generate_results(purposes: list) -> list:
     matches = []
 
     # Use first purpose to create 
-    matches += [grants[purposes[0]]]
+    matches += grants[purposes[0]]
     del purposes[0]
     
     while len(purposes) > 0:
