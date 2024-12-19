@@ -80,6 +80,7 @@ if association == "Student":
 
 
 
+
 # Takes in selected purposes (pill-buttons) and gives list of grants that cover them
 def generate_results(purposes: list) -> list:
     """
