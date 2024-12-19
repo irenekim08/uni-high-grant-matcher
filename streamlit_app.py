@@ -81,6 +81,7 @@ def generate_results(purposes: list) -> list:
 
     # All grants in first purpose added no matter what (serves as base to go off of in case of multi selection)
     if type(grants[purposes[0]]) != str:
+        st.write(f"{grants[purposes[0]]}")
         matches = grants[purposes[0]]
     else:
         matches = [grants[purposes[0]]]
