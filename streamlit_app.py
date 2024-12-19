@@ -81,9 +81,9 @@ def generate_results(purposes: list) -> list:
 
     # All grants in first purpose added
     if type(grants[purposes[0]]) != str:
-        matches += grants[purposes[0]]
+        matches = grants[purposes[0]]
     else:
-        matches += [grants[purposes[0]]]
+        matches = [grants[purposes[0]]]
     del purposes[0]
     
     # If more than one purpose is selected, matches is redefined as the grant(s) that cover all purposes
