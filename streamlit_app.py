@@ -28,6 +28,7 @@ purposes = []
 if association == "Faculty":
     
     # Purposes (keys), Grants that cover them (values)
+    # All values stored as lists so no slicing errors in other steps
     grants = {"Classroom Supplies": ["Uni High Faculty Classroom Needs & Projects Request"],
               "Special Opportunity (Non-Uni)": ["Ang Current Use Fund (Professional Development Funding)", "Uni Endowment Fund (Professional Development Funding)"],
               "Conference": ["Ang Current Use Fund (Professional Development Funding)"],
@@ -45,6 +46,7 @@ if association == "Faculty":
 if association == "Student":  
 
     # Purposes (keys), Grants that cover them (values)
+    # All values stored as lists so no slicing errors in other steps
     grants = {"Conference": ["Barbara Lazarus Memorial Fund"],
               "Research": ["Barbara Lazarus Memorial Fund", "Frankel Fund For Learning Innovation"],
               "Activity": ["Barbara Lazarus Memorial Fund", "Makino Awards"],
@@ -54,6 +56,7 @@ if association == "Student":
               "Study Abroad": ["Boren Scholarship", "McNevin Scholarship"],
               "AP/ACT Prep": ["Boren Scholarship", "McNevin Scholarship"],
               "Camps (academic, arts, athletics)": ["Boren Scholarship", "McNevin Scholarship"]}
+    
     purposes = st.pills("Select all purposes for grant", grants.keys(), selection_mode = "multi") 
 
 
