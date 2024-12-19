@@ -80,7 +80,7 @@ def generate_results(purposes: list) -> list:
     matches = []
 
     # All grants in first purpose added
-    matches += grants[purposes[0]]
+    matches += [grants[purposes[0]]]
     del purposes[0]
     
     # If more than one purpose is selected, matches is redefined as the grant(s) that cover all purposes
