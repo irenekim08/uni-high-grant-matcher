@@ -128,3 +128,6 @@ if purposes != []:
         st.link_button(f"Apply for {grant}", grant_links[grant])
 
     st.write("For more information on grants and funds at Uni, visit the Uni High website.")
+    url = "https://www.streamlit.io"
+    st.write("check out this [link](%s)" % url)
+    st.markdown("check out this [link](%s)" % url)
