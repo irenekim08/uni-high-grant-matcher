@@ -79,16 +79,10 @@ def generate_results(purposes: list) -> list:
     """
     matches = []
 
-    for purpose in purposes:
-        
-        # Multiple grants
-        if type(grants[purpose]) != str:
-            for grant in grants[purpose]:
-                matches += [grant]
-                
-        # One grant
-        else:
-            matches += [grants[purpose]]
+    if len(purposes) == 1:
+        st.write("one")
+    else:
+        st.write("more")
             
     return matches
 
