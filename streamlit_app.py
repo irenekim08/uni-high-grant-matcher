@@ -62,7 +62,7 @@ if association == "Student":
 # Takes in selected purposes (pill-buttons) and gives list of grants that cover them
 def generate_results(purposes: list) -> list:
     """
-    Generates results of suitable grant(s) based off of user's chosen purposes.
+    Generates a list of grants that cover all of the chosen purposes.
 
     Args:
             purposes(list):        List containing strings of chosen purpose options.
@@ -74,20 +74,20 @@ def generate_results(purposes: list) -> list:
             >>> generate_results(["Conference"])
                 ["Barbara Lazarus Memorial Fund"]
                 (in the case of faculty)
-            >>> generate_results(["Conference"])
-                ["Ang Current Use Fund (Professional Development Funding)"]
+            >>> generate_results(["Startup (New Program)", "Travel/Housing/Food])
+                ["Teaching Excellence (Makino Awards)"]
     """
     matches = []
 
-    # Use first purpose to create 
+    # All grants in first purpose added
     matches += grants[purposes[0]]
     del purposes[0]
-    
+
+    # If more than one purpose is selected, matches is redefined as the grant(s) that cover all purposes
     while len(purposes) > 0:
         matches = [grant for grant in grants[purposes[0]] if grant in matches]
         del purposes[0]
 
-    st.write(f"{matches}")
     return matches
 
 
@@ -112,7 +112,6 @@ grant_links = {"Barbara Lazarus Memorial Fund": "https://www.uni.illinois.edu/si
 if purposes != []:
     st.write(f"Check out:")
     
-    # Remove multiplicity in total generated results
     for grant in generate_results(purposes):
         st.link_button(f"Apply for {grant}", grant_links[grant])
 
