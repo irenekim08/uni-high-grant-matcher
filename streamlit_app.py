@@ -74,23 +74,16 @@ def generate_results(purposes: list) -> list:
             >>> generate_results(["Conference"])
                 ["Barbara Lazarus Memorial Fund"]
                 (in the case of faculty)
-            >>> generate_results(["Startup (New Program)", "Travel/Housing/Food])
+            >>> generate_results(["Startup (New Program)", "Travel/Housing/Food"])
                 ["Teaching Excellence (Makino Awards)"]
     """
-    matches = []
 
     # All grants in first purpose added no matter what (serves as base to go off of in case of multi selection)
-    if type(grants[purposes[0]]) != str:
-        st.write(f"{grants[purposes[0]]}")
-        matches = grants[purposes[0]]
-    else:
-        matches = [grants[purposes[0]]]
+    matches = grants[purposes[0]]
     
     # If more than one purpose is selected, matches is redefined as the grant(s) that cover all purposes
     if len(purposes) > 1:
         for i in range(1, len(purposes)):
-            if type(grants[purposes[i]]) == str:
-                grants[purposes[i]]
             matches = [grant for grant in grants[purposes[i]] if grant in matches]
         
     return matches
