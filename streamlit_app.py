@@ -83,6 +83,10 @@ def generate_results(purposes: list) -> list:
     matches += grants[purposes[0]]
     del purposes[0]
 
+    # Prevents slicing error in link_button step
+    if purposes == []:
+        return [matches]
+    
     # If more than one purpose is selected, matches is redefined as the grant(s) that cover all purposes
     while len(purposes) > 0:
         matches = [grant for grant in grants[purposes[0]] if grant in matches]
