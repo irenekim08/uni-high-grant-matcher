@@ -80,7 +80,10 @@ def generate_results(purposes: list) -> list:
     matches = []
 
     # All grants in first purpose added
-    matches += [grants[purposes[0]]]
+    if type(grants[purposes[0]]) != str:
+        matches += grants[purposes[0]]
+    else:
+        matches += [grants[purposes[0]]]
     del purposes[0]
     
     # If more than one purpose is selected, matches is redefined as the grant(s) that cover all purposes
@@ -89,11 +92,7 @@ def generate_results(purposes: list) -> list:
         del purposes[0]
         
     st.write(f"{matches}")
-    if type(matches) != str:
-        return matches
-    # Prevents error of slicing string in link_button step
-    else:
-        return [matches]
+    return [matches]
 
 
 
