@@ -77,7 +77,7 @@ def generate_results(purposes: list) -> list:
             >>> generate_results(["Conference"])
                 ["Ang Current Use Fund (Professional Development Funding)"]
     """
-    
+    matches = []
     matches += [grants[purposes[0]]]
     del purposes[0]
     while len(purposes) > 0:
