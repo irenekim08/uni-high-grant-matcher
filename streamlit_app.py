@@ -82,6 +82,7 @@ def generate_results(purposes: list) -> list:
     # All grants in first purpose added
     if type(grants[purposes[0]]) != str:
         matches = grants[purposes[0]]
+        st.write(f"{matches}")
     else:
         matches = [grants[purposes[0]]]
     del purposes[0]
