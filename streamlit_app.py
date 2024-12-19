@@ -81,8 +81,8 @@ def generate_results(purposes: list) -> list:
     matches += [grants[purposes[0]]]
     del purposes[0]
     while len(purposes) > 0:
-        matches = [grant for grant in grants[purpose[0]] if grant in matches]
-        del purpose[0]
+        matches = [grant for grant in grants[purposes[0]] if grant in matches]
+        del purposes[0]
     return matches
 
 
