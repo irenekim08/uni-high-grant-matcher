@@ -78,11 +78,15 @@ def generate_results(purposes: list) -> list:
                 ["Ang Current Use Fund (Professional Development Funding)"]
     """
     matches = []
+
+    # Use first purpose to create 
     matches += [grants[purposes[0]]]
     del purposes[0]
+    
     while len(purposes) > 0:
         matches = [grant for grant in grants[purposes[0]] if grant in matches]
         del purposes[0]
+        
     return matches
 
 
@@ -108,7 +112,7 @@ if purposes != []:
     st.write(f"Check out:")
     
     # Remove multiplicity in total generated results
-    for grant in set(generate_results(purposes)):
+    for grant in generate_results(purposes):
         st.link_button(f"Apply for {grant}", grant_links[grant])
 
     st.write("For more information on grants and funds at Uni, visit the Uni High website.")
