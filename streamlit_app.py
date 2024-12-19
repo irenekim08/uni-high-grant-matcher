@@ -77,15 +77,13 @@ def generate_results(purposes: list) -> list:
             >>> generate_results(["Conference"])
                 ["Ang Current Use Fund (Professional Development Funding)"]
     """
-    matches = []
-
-    if len(purposes) == 1:
-        st.write("one")
-    else:
-        st.write("more")
-            
+    
+    matches += [grants[purposes[0]]]
+    del purposes[0]
+    while len(purposes) > 0:
+        matches = [grant for grant in grants[purpose[0]] if grant in matches]
+        del purpose[0]
     return matches
-
 
 
 
